@@ -1,0 +1,48 @@
+<div class="container mt-5 bg-light" >
+    <form id="productForm"> 
+        <h1 class="text-center fw-bold">Ingrese un producto</h1>       
+        <div class="mb-3">
+            <label for="name" class="form-label fw-bold">Nombre</label>
+            <input type="text" class="form-control" id="name" name="name"  >        
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label fw-bold">Precio</label>
+            <input type="text" class="form-control" id="price" name="price">
+        </div>
+
+        <div class="mb-3">
+            <label for="url_image" class="form-label fw-bold">Imagen</label>
+            <input type="text" class="form-control" id="url_image" name="thumbnail">
+        </div>
+        
+        <div class="d-grid  d-md-flex justify-content-md-end">
+                <button class="btn btn-primary btn-md m-3" type="button" onclick="addProduct(productForm)">Enviar</button>
+        </div>
+    </form>
+</div>
+
+<div class="container mt-3">
+    <table class="table table-striped text-center mt-3 mx-auto">
+        <thead class="bg-success">
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
+            </tr>
+        </thead>
+        <tbody id="productosSocket" ></tbody>
+    </table>
+</div>
+
+
+{{>chatForm}}
+
+<div id="chat">
+    
+</div>
+
+
+
+
