@@ -6,11 +6,19 @@ const httpServer = require('http').createServer(app);
 const io = require('socket.io')(httpServer, {
   cors: { origin: '*' }
 });
-
-
 httpServer.listen(PORT, () => {
   console.log(`Servidor http escuchando en el puerto ${PORT}`);
 });
+
+const { optionsMDB } = require("./options/optionsMDB");
+const { optionsSQLITE } = require("./options/optionsSQLITE");
+
+const knexMDB = require("knex")(optionsMDB);
+const knexSQLITE = require("knex")(optionsSQLITE);
+
+
+
+
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -30,17 +38,17 @@ app.engine(
   })
 );
 
-let productsHC = [
-  {id:1, name: 'Nike', price:100, thumbnail:'http://localhost:8080/public/nike.png'}, 
-  {id:2, name:'Adidas', price:200, thumbnail:'http://localhost:8080/public/adidas.png'}, 
-  {id:3, name:'Puma', price:300, thumbnail:'http://localhost:8080/public/puma.png'}
-  ];
+// let productsHC = [
+//   {id:1, name: 'Nike', price:100, thumbnail:'http://localhost:8080/public/nike.png'}, 
+//   {id:2, name:'Adidas', price:200, thumbnail:'http://localhost:8080/public/adidas.png'}, 
+//   {id:3, name:'Puma', price:300, thumbnail:'http://localhost:8080/public/puma.png'}
+//   ];
 
-  let chat = [{
-    email: 'gonzalojavier19@gmail.com',
-    message:'Hola!',
-    date: new Date().toLocaleString()
-  }];
+//   let chat = [{
+//     email: 'gonzalojavier19@gmail.com',
+//     message:'Hola!',
+//     date: new Date().toLocaleString()
+//   }];
 
   
   class Products {
